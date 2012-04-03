@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Chapter 7: Example 4</title>
+    <script type="text/javascript">
+    function btnCheckForm_onclick()
+    {
+        var myForm = document.form1;
+        if (myForm.txtNum1.value == "" || myForm.txtNum2.value == "")
+        {
+            alert("Please complete all of the form.");
+            if (myForm.txtNum2.value == "")
+            {
+                myForm.txtNum2.focus();
+            }
+            else
+            {
+                myForm.txtNum1.focus();
+            }
+        }
+        else
+        {
+            alert("Thanks for completing the form ");
+        }
+    }
+    
+    function txtNum1_onblur()
+    {
+        var txtNum1 = document.form1.txtNum1;
+        if (isNaN(txtNum1.value) == true)
+        {
+            alert("Please enter a valid Number");
+            txtNum1.focus();
+            txtNum1.select();
+        }
+    }
+    
+	function txtNum2_onblur()
+    {
+        var txtNum2 = document.form1.txtNum2;
+        if (isNaN(txtNum2.value) == true)
+        {
+            alert("Please enter a valid Number");
+            txtNum2.focus();
+            txtNum2.select();
+        }
+    }
+	
+    </script>
+</head>
+<body>
+    <form action="" name="form1">
+        Please enter the following details:
+        <p>
+            First Number:
+            <br />
+            <input type="text" name="txtNum1" onchange="txtNum1_onblur()"
+			size="3" maxlength="3" />
+        </p>
+        <p>
+            2nd Number Please:
+            <br />
+            <input type="text" name="txtNum2" onblur="txtNum2_onblur()"
+			size="3" maxlength="3" />
+        </p>
+        <p>
+            <input type="button" value="Check Details" 
+                name="btnCheckForm" onclick="btnCheckForm_onclick()">
+        </p>
+    </form>
+</body>
+</html>
